@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>SCMALL HK - 香港智能贩卖机招商加盟</title>
+<title data-i18n="pageTitle">SCMALL HK - 香港智能販賣機招商加盟</title>
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -47,6 +47,33 @@ tailwind.config = {
   .accordion-item.active .icon-arrow {
     transform: rotate(180deg);
   }
+  .lang-toggle {
+    position: relative;
+    width: 60px;
+    height: 28px;
+    background: #e5e1d8;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  .lang-toggle.active {
+    background: #CD2948;
+  }
+  .lang-toggle::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 24px;
+    height: 24px;
+    background: white;
+    border-radius: 50%;
+    transition: transform 0.3s;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  }
+  .lang-toggle.active::after {
+    transform: translateX(32px);
+  }
 </style>
 </head>
 <body class="bg-brand-bg text-brand-dark font-sans antialiased">
@@ -61,23 +88,28 @@ tailwind.config = {
         </div>
         <div>
           <span class="text-xl font-extrabold tracking-tight">SCMALL <span class="text-brand-accent">HK</span></span>
-          <p class="text-xs text-brand-muted -mt-1">智能零售解决方案</p>
+          <p class="text-xs text-brand-muted -mt-1" data-i18n="tagline">智能零售解決方案</p>
         </div>
       </div>
       <!-- Nav -->
       <nav class="hidden md:flex items-center gap-8">
-        <a href="#home" class="text-brand-muted hover:text-brand-accent font-medium transition-colors">首页</a>
-        <a href="#products" class="text-brand-muted hover:text-brand-accent font-medium transition-colors">全部商品</a>
-        <a href="#brands" class="text-brand-muted hover:text-brand-accent font-medium transition-colors">招商加盟</a>
-        <a href="#contact" class="text-brand-muted hover:text-brand-accent font-medium transition-colors">合作方式</a>
+        <a href="#home" class="text-brand-muted hover:text-brand-accent font-medium transition-colors" data-i18n="nav.home">首頁</a>
+        <a href="#products" class="text-brand-muted hover:text-brand-accent font-medium transition-colors" data-i18n="nav.products">全部商品</a>
+        <a href="#brands" class="text-brand-muted hover:text-brand-accent font-medium transition-colors" data-i18n="nav.franchise">招商加盟</a>
+        <a href="#contact" class="text-brand-muted hover:text-brand-accent font-medium transition-colors" data-i18n="nav.contact">合作方式</a>
       </nav>
-      <!-- CTA -->
-      <div class="flex items-center gap-3">
-        <button class="px-5 py-2 border border-brand-dark rounded-full text-sm font-semibold hover:bg-brand-dark hover:text-white transition-colors">
-          商家入驻
+      <!-- CTA & Lang Toggle -->
+      <div class="flex items-center gap-4">
+        <div class="flex items-center gap-2">
+          <span class="text-xs font-medium text-brand-muted" data-i18n="lang.en">EN</span>
+          <div class="lang-toggle active" id="langToggle" onclick="toggleLang()"></div>
+          <span class="text-xs font-medium text-brand-muted" data-i18n="lang.zh">繁</span>
+        </div>
+        <button class="px-5 py-2 border border-brand-dark rounded-full text-sm font-semibold hover:bg-brand-dark hover:text-white transition-colors" data-i18n="btn.merchant">
+          商家入駐
         </button>
-        <button class="px-5 py-2 bg-brand-accent text-white rounded-full text-sm font-semibold hover:brightness-110 transition-all">
-          立即咨询
+        <button class="px-5 py-2 bg-brand-accent text-white rounded-full text-sm font-semibold hover:brightness-110 transition-all" data-i18n="btn.consult">
+          立即咨詢
         </button>
       </div>
     </div>
@@ -89,22 +121,22 @@ tailwind.config = {
   <section id="home" class="py-16 md:py-24">
     <div class="flex flex-col lg:flex-row items-center gap-12">
       <div class="flex-1">
-        <span class="inline-block px-4 py-2 bg-brand-accent/10 text-brand-accent text-xs font-bold uppercase tracking-widest rounded-full mb-6">
-          香港智能贩卖机领导品牌
+        <span class="inline-block px-4 py-2 bg-brand-accent/10 text-brand-accent text-xs font-bold uppercase tracking-widest rounded-full mb-6" data-i18n="hero.badge">
+          香港智能販賣機領導品牌
         </span>
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
-          智能贩卖机<br/>
-          <span class="text-brand-accent">赋能商业新场景</span>
+          <span data-i18n="hero.title1">智能販賣機</span><br/>
+          <span class="text-brand-accent" data-i18n="hero.title2">賦能商業新場景</span>
         </h1>
-        <p class="text-lg text-brand-muted mb-8 leading-relaxed max-w-xl">
-          以香港本地运营网络为基础，覆盖办公楼宇、交通枢纽与校园场景，提供稳定补货、数字化运营与本地化选品能力。
+        <p class="text-lg text-brand-muted mb-8 leading-relaxed max-w-xl" data-i18n="hero.desc">
+          以香港本地運營網絡為基礎，覆蓋辦公樓宇、交通樞紐與校園場景，提供穩定補貨、數字化運營與本地化選品能力。
         </p>
         <div class="flex flex-wrap gap-4">
-          <button class="px-8 py-4 bg-brand-accent text-white font-bold rounded-xl hover:brightness-110 transition-all shadow-lg shadow-brand-accent/30">
-            下载招商手册
+          <button class="px-8 py-4 bg-brand-accent text-white font-bold rounded-xl hover:brightness-110 transition-all shadow-lg shadow-brand-accent/30" data-i18n="hero.cta1">
+            下載招商手冊
           </button>
-          <button class="px-8 py-4 bg-white border-2 border-brand-border text-brand-dark font-semibold rounded-xl hover:bg-brand-border transition-colors">
-            查看服务方案
+          <button class="px-8 py-4 bg-white border-2 border-brand-border text-brand-dark font-semibold rounded-xl hover:bg-brand-border transition-colors" data-i18n="hero.cta2">
+            查看服務方案
           </button>
         </div>
       </div>
@@ -120,7 +152,7 @@ tailwind.config = {
               </div>
               <div>
                 <p class="text-2xl font-extrabold">500+</p>
-                <p class="text-sm text-brand-muted">智能机点位</p>
+                <p class="text-sm text-brand-muted" data-i18n="hero.stats">智能機點位</p>
               </div>
             </div>
           </div>
@@ -131,39 +163,39 @@ tailwind.config = {
 
   <!-- Stats Section -->
   <section id="brands" class="py-16">
-    <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center">品牌矩阵</h2>
+    <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center" data-i18n="stats.title">品牌矩陣</h2>
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
       <div class="bg-white rounded-card p-8 shadow-sm border border-brand-border hover:shadow-lg transition-shadow">
-        <p class="text-sm font-semibold text-brand-muted mb-3">写字楼精选线</p>
+        <p class="text-sm font-semibold text-brand-muted mb-3" data-i18n="stats.office.title">寫字樓精選線</p>
         <div class="flex items-end gap-2 mb-4">
           <span class="text-5xl font-extrabold">182</span>
-          <span class="text-lg font-bold mb-1">台</span>
+          <span class="text-lg font-bold mb-1" data-i18n="stats.unit">台</span>
         </div>
-        <span class="inline-block px-3 py-1 bg-brand-dark text-white text-xs font-bold rounded-full uppercase tracking-wider">核心商圈</span>
+        <span class="inline-block px-3 py-1 bg-brand-dark text-white text-xs font-bold rounded-full uppercase tracking-wider" data-i18n="stats.office.tag">核心商圈</span>
       </div>
       <div class="bg-white rounded-card p-8 shadow-sm border border-brand-border hover:shadow-lg transition-shadow">
-        <p class="text-sm font-semibold text-brand-muted mb-3">校园轻食线</p>
+        <p class="text-sm font-semibold text-brand-muted mb-3" data-i18n="stats.campus.title">校園輕食線</p>
         <div class="flex items-end gap-2 mb-4">
           <span class="text-5xl font-extrabold">96</span>
-          <span class="text-lg font-bold mb-1">台</span>
+          <span class="text-lg font-bold mb-1" data-i18n="stats.unit">台</span>
         </div>
-        <span class="inline-block px-3 py-1 bg-blue-600 text-white text-xs font-bold rounded-full uppercase tracking-wider">高校覆盖</span>
+        <span class="inline-block px-3 py-1 bg-blue-600 text-white text-xs font-bold rounded-full uppercase tracking-wider" data-i18n="stats.campus.tag">高校覆蓋</span>
       </div>
       <div class="bg-white rounded-card p-8 shadow-sm border border-brand-border hover:shadow-lg transition-shadow">
-        <p class="text-sm font-semibold text-brand-muted mb-3">交通枢纽线</p>
+        <p class="text-sm font-semibold text-brand-muted mb-3" data-i18n="stats.hub.title">交通樞紐線</p>
         <div class="flex items-end gap-2 mb-4">
           <span class="text-5xl font-extrabold">74</span>
-          <span class="text-lg font-bold mb-1">台</span>
+          <span class="text-lg font-bold mb-1" data-i18n="stats.unit">台</span>
         </div>
-        <span class="inline-block px-3 py-1 bg-gray-700 text-white text-xs font-bold rounded-full uppercase tracking-wider">高客流</span>
+        <span class="inline-block px-3 py-1 bg-gray-700 text-white text-xs font-bold rounded-full uppercase tracking-wider" data-i18n="stats.hub.tag">高客流</span>
       </div>
       <div class="bg-white rounded-card p-8 shadow-sm border border-brand-border hover:shadow-lg transition-shadow">
-        <p class="text-sm font-semibold text-brand-muted mb-3">社区便民线</p>
+        <p class="text-sm font-semibold text-brand-muted mb-3" data-i18n="stats.community.title">社區便民線</p>
         <div class="flex items-end gap-2 mb-4">
           <span class="text-5xl font-extrabold">128</span>
-          <span class="text-lg font-bold mb-1">台</span>
+          <span class="text-lg font-bold mb-1" data-i18n="stats.unit">台</span>
         </div>
-        <span class="inline-block px-3 py-1 bg-brand-dark text-white text-xs font-bold rounded-full uppercase tracking-wider">24小时</span>
+        <span class="inline-block px-3 py-1 bg-brand-dark text-white text-xs font-bold rounded-full uppercase tracking-wider" data-i18n="stats.community.tag">24小時</span>
       </div>
     </div>
   </section>
@@ -172,62 +204,62 @@ tailwind.config = {
   <section id="products" class="py-16">
     <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-10">
       <div>
-        <h2 class="text-2xl md:text-3xl font-bold mb-3">热门商品</h2>
-        <p class="text-brand-muted">精选即饮饮料、健康零食、咖啡热饮，覆盖办公与休闲场景</p>
+        <h2 class="text-2xl md:text-3xl font-bold mb-3" data-i18n="products.title">熱門商品</h2>
+        <p class="text-brand-muted" data-i18n="products.subtitle">精選即飲飲料、健康零食、咖啡熱飲，覆蓋辦公與休閒場景</p>
       </div>
-      <button class="px-6 py-3 bg-white border border-brand-border rounded-xl text-sm font-semibold hover:bg-brand-border transition-colors">
+      <button class="px-6 py-3 bg-white border border-brand-border rounded-xl text-sm font-semibold hover:bg-brand-border transition-colors" data-i18n="products.viewAll">
         查看全部商品
       </button>
     </div>
 
     <!-- Category Tabs -->
     <div class="flex flex-wrap gap-3 mb-8">
-      <button class="px-6 py-2 bg-brand-accent text-white rounded-full text-sm font-bold">即饮饮料</button>
-      <button class="px-6 py-2 bg-white/50 hover:bg-white rounded-full text-sm font-semibold border border-brand-border transition-all">健康零食</button>
-      <button class="px-6 py-2 bg-white/50 hover:bg-white rounded-full text-sm font-semibold border border-brand-border transition-all">咖啡热饮</button>
-      <button class="px-6 py-2 bg-white/50 hover:bg-white rounded-full text-sm font-semibold border border-brand-border transition-all">个人护理</button>
+      <button class="px-6 py-2 bg-brand-accent text-white rounded-full text-sm font-bold" data-i18n="products.cat1">即飲飲料</button>
+      <button class="px-6 py-2 bg-white/50 hover:bg-white rounded-full text-sm font-semibold border border-brand-border transition-all" data-i18n="products.cat2">健康零食</button>
+      <button class="px-6 py-2 bg-white/50 hover:bg-white rounded-full text-sm font-semibold border border-brand-border transition-all" data-i18n="products.cat3">咖啡熱飲</button>
+      <button class="px-6 py-2 bg-white/50 hover:bg-white rounded-full text-sm font-semibold border border-brand-border transition-all" data-i18n="products.cat4">個人護理</button>
     </div>
 
     <!-- Product Grid -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <div class="group bg-white rounded-card p-6 shadow-sm border border-transparent hover:shadow-xl hover:border-brand-accent/20 transition-all">
         <div class="aspect-[4/3] bg-gray-100 rounded-xl mb-6 overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1629203851122-3726ecdf080e?w=400&h=300&fit=crop" alt="柠檬茶" class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform"/>
+          <img src="https://images.unsplash.com/photo-1629203851122-3726ecdf080e?w=400&h=300&fit=crop" alt="檸檬茶" class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform"/>
         </div>
-        <h3 class="text-xl font-extrabold mb-2">维他柠檬茶 310ml</h3>
-        <p class="text-sm text-brand-muted mb-4">港式经典即饮 · 高复购</p>
+        <h3 class="text-xl font-extrabold mb-2" data-i18n="product1.name">維他檸檬茶 310ml</h3>
+        <p class="text-sm text-brand-muted mb-4" data-i18n="product1.desc">港式經典即飲 · 高復購</p>
         <div class="flex items-center justify-between">
-          <span class="px-3 py-1 bg-brand-dark text-white text-xs font-bold rounded">月销 9,800+</span>
+          <span class="px-3 py-1 bg-brand-dark text-white text-xs font-bold rounded" data-i18n="product1.sales">月銷 9,800+</span>
           <button class="flex items-center gap-2 px-4 py-2 bg-brand-accent text-white text-sm font-bold rounded-lg hover:brightness-110 transition-all">
-            <span class="text-lg leading-none">+</span> 申请上架
+            <span class="text-lg leading-none">+</span> <span data-i18n="product.apply">申請上架</span>
           </button>
         </div>
       </div>
 
       <div class="group bg-white rounded-card p-6 shadow-sm border border-transparent hover:shadow-xl hover:border-brand-accent/20 transition-all">
         <div class="aspect-[4/3] bg-gray-100 rounded-xl mb-6 overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400&h=300&fit=crop" alt="乌龙茶" class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform"/>
+          <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400&h=300&fit=crop" alt="烏龍茶" class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform"/>
         </div>
-        <h3 class="text-xl font-extrabold mb-2">无糖乌龙茶 500ml</h3>
-        <p class="text-sm text-brand-muted mb-4">轻负担茶饮 · 午后场景</p>
+        <h3 class="text-xl font-extrabold mb-2" data-i18n="product2.name">無糖烏龍茶 500ml</h3>
+        <p class="text-sm text-brand-muted mb-4" data-i18n="product2.desc">輕負擔茶飲 · 午後場景</p>
         <div class="flex items-center justify-between">
-          <span class="px-3 py-1 bg-brand-dark text-white text-xs font-bold rounded">月销 7,200+</span>
+          <span class="px-3 py-1 bg-brand-dark text-white text-xs font-bold rounded" data-i18n="product2.sales">月銷 7,200+</span>
           <button class="flex items-center gap-2 px-4 py-2 bg-brand-accent text-white text-sm font-bold rounded-lg hover:brightness-110 transition-all">
-            <span class="text-lg leading-none">+</span> 申请上架
+            <span class="text-lg leading-none">+</span> <span data-i18n="product.apply">申請上架</span>
           </button>
         </div>
       </div>
 
       <div class="group bg-white rounded-card p-6 shadow-sm border border-transparent hover:shadow-xl hover:border-brand-accent/20 transition-all">
         <div class="aspect-[4/3] bg-gray-100 rounded-xl mb-6 overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1599490659213-e2b9527bd087?w=400&h=300&fit=crop" alt="坚果能量棒" class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform"/>
+          <img src="https://images.unsplash.com/photo-1599490659213-e2b9527bd087?w=400&h=300&fit=crop" alt="堅果能量棒" class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform"/>
         </div>
-        <h3 class="text-xl font-extrabold mb-2">坚果能量组合装</h3>
-        <p class="text-sm text-brand-muted mb-4">办公室补给 · 高毛利</p>
+        <h3 class="text-xl font-extrabold mb-2" data-i18n="product3.name">堅果能量組合裝</h3>
+        <p class="text-sm text-brand-muted mb-4" data-i18n="product3.desc">辦公室補給 · 高毛利</p>
         <div class="flex items-center justify-between">
-          <span class="px-3 py-1 bg-brand-dark text-white text-xs font-bold rounded">月销 6,500+</span>
+          <span class="px-3 py-1 bg-brand-dark text-white text-xs font-bold rounded" data-i18n="product3.sales">月銷 6,500+</span>
           <button class="flex items-center gap-2 px-4 py-2 bg-brand-accent text-white text-sm font-bold rounded-lg hover:brightness-110 transition-all">
-            <span class="text-lg leading-none">+</span> 申请上架
+            <span class="text-lg leading-none">+</span> <span data-i18n="product.apply">申請上架</span>
           </button>
         </div>
       </div>
@@ -237,41 +269,41 @@ tailwind.config = {
   <!-- Cooperation Section -->
   <section class="py-16 bg-white/50 backdrop-blur-sm rounded-3xl px-8 my-16 border border-brand-border">
     <div class="mb-12">
-      <h2 class="text-2xl md:text-3xl font-extrabold mb-4">香港智能贩卖机加盟与合作</h2>
-      <p class="text-brand-muted">围绕品牌展示、产品上架与合作招商，提供面向香港市场的一体化落地方案</p>
+      <h2 class="text-2xl md:text-3xl font-extrabold mb-4" data-i18n="coop.title">香港智能販賣機加盟與合作</h2>
+      <p class="text-brand-muted" data-i18n="coop.subtitle">圍繞品牌展示、產品上架與合作招商，提供面向香港市場的一體化落地解決方案</p>
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
       <!-- Steps -->
       <div>
-        <h3 class="text-xl font-bold mb-8">合作流程</h3>
+        <h3 class="text-xl font-bold mb-8" data-i18n="coop.stepsTitle">合作流程</h3>
         <div class="space-y-6">
           <div class="flex gap-4">
             <div class="w-10 h-10 rounded-full bg-brand-dark text-white flex items-center justify-center font-bold flex-shrink-0">1</div>
             <div>
-              <h4 class="font-bold text-lg">提交意向</h4>
-              <p class="text-sm text-brand-muted mt-1">提交合作意向与区域信息，预定招商经理对接</p>
+              <h4 class="font-bold text-lg" data-i18n="coop.step1.title">提交意向</h4>
+              <p class="text-sm text-brand-muted mt-1" data-i18n="coop.step1.desc">提交合作意向與區域信息，預定招商經理對接</p>
             </div>
           </div>
           <div class="flex gap-4">
             <div class="w-10 h-10 rounded-full bg-brand-dark text-white flex items-center justify-center font-bold flex-shrink-0">2</div>
             <div>
-              <h4 class="font-bold text-lg">点位评估</h4>
-              <p class="text-sm text-brand-muted mt-1">专业团队进行点位评估与选品策略建议</p>
+              <h4 class="font-bold text-lg" data-i18n="coop.step2.title">點位評估</h4>
+              <p class="text-sm text-brand-muted mt-1" data-i18n="coop.step2.desc">專業團隊進行點位評估與選品策略建議</p>
             </div>
           </div>
           <div class="flex gap-4">
             <div class="w-10 h-10 rounded-full bg-brand-dark text-white flex items-center justify-center font-bold flex-shrink-0">3</div>
             <div>
-              <h4 class="font-bold text-lg">签约部署</h4>
-              <p class="text-sm text-brand-muted mt-1">签订合同与设备部署，香港本地团队全程服务</p>
+              <h4 class="font-bold text-lg" data-i18n="coop.step3.title">簽約部署</h4>
+              <p class="text-sm text-brand-muted mt-1" data-i18n="coop.step3.desc">簽訂合同與設備部署，香港本地團隊全程服務</p>
             </div>
           </div>
           <div class="flex gap-4">
             <div class="w-10 h-10 rounded-full bg-brand-dark text-white flex items-center justify-center font-bold flex-shrink-0">4</div>
             <div>
-              <h4 class="font-bold text-lg">持续运营</h4>
-              <p class="text-sm text-brand-muted mt-1">营运复盘与持续优化，保障稳定收益</p>
+              <h4 class="font-bold text-lg" data-i18n="coop.step4.title">持續運營</h4>
+              <p class="text-sm text-brand-muted mt-1" data-i18n="coop.step4.desc">營運複盤與持續優化，保障穩定收益</p>
             </div>
           </div>
         </div>
@@ -279,29 +311,29 @@ tailwind.config = {
 
       <!-- Models -->
       <div>
-        <h3 class="text-xl font-bold mb-8">加盟方式</h3>
+        <h3 class="text-xl font-bold mb-8" data-i18n="coop.modelsTitle">加盟方式</h3>
         <div class="space-y-4">
           <div class="bg-white p-6 rounded-xl border border-brand-border shadow-sm">
             <div class="flex justify-between items-start mb-4">
               <div>
-                <h4 class="font-extrabold text-lg mb-1">标准加盟</h4>
-                <p class="text-sm text-brand-muted">适合中小型点位，快速部署热门饮品与零食机</p>
+                <h4 class="font-extrabold text-lg mb-1" data-i18n="model1.title">標準加盟</h4>
+                <p class="text-sm text-brand-muted" data-i18n="model1.desc">適合中小型點位，快速部署熱門飲品與零食機</p>
               </div>
-              <span class="px-3 py-1 bg-brand-accent/10 text-brand-accent text-xs font-bold rounded-full">热门</span>
+              <span class="px-3 py-1 bg-brand-accent/10 text-brand-accent text-xs font-bold rounded-full" data-i18n="model.hot">熱門</span>
             </div>
-            <button class="w-full py-3 bg-brand-accent text-white font-bold rounded-lg hover:brightness-110 transition-all">获取方案</button>
+            <button class="w-full py-3 bg-brand-accent text-white font-bold rounded-lg hover:brightness-110 transition-all" data-i18n="model.getPlan">獲取方案</button>
           </div>
 
           <div class="bg-white p-6 rounded-xl border border-brand-border shadow-sm">
-            <h4 class="font-extrabold text-lg mb-1">区域代理</h4>
-            <p class="text-sm text-brand-muted mb-4">适合连锁门店与商场渠道，支持多点位统一运维</p>
-            <button class="w-full py-3 bg-white border-2 border-brand-dark text-brand-dark font-bold rounded-lg hover:bg-brand-dark hover:text-white transition-all">查看权益</button>
+            <h4 class="font-extrabold text-lg mb-1" data-i18n="model2.title">區域代理</h4>
+            <p class="text-sm text-brand-muted mb-4" data-i18n="model2.desc">適合連鎖門店與商場渠道，支持多點位統一運維</p>
+            <button class="w-full py-3 bg-white border-2 border-brand-dark text-brand-dark font-bold rounded-lg hover:bg-brand-dark hover:text-white transition-all" data-i18n="model.viewRights">查看權益</button>
           </div>
 
           <div class="bg-white p-6 rounded-xl border border-brand-border shadow-sm">
-            <h4 class="font-extrabold text-lg mb-1">联营合作</h4>
-            <p class="text-sm text-brand-muted mb-4">品牌方与场地联营收益分成，灵活匹配交通枢纽与写字楼</p>
-            <button class="w-full py-3 bg-brand-accent text-white font-bold rounded-lg hover:brightness-110 transition-all">即刻洽谈</button>
+            <h4 class="font-extrabold text-lg mb-1" data-i18n="model3.title">聯營合作</h4>
+            <p class="text-sm text-brand-muted mb-4" data-i18n="model3.desc">品牌方與場地聯營收益分成，靈活匹配交通樞紐與寫字樓</p>
+            <button class="w-full py-3 bg-brand-accent text-white font-bold rounded-lg hover:brightness-110 transition-all" data-i18n="model.contactNow">即刻洽談</button>
           </div>
         </div>
       </div>
@@ -310,45 +342,45 @@ tailwind.config = {
 
   <!-- FAQ Section -->
   <section class="py-16">
-    <h2 class="text-2xl md:text-3xl font-bold mb-10 text-center">常见问题</h2>
+    <h2 class="text-2xl md:text-3xl font-bold mb-10 text-center" data-i18n="faq.title">常見問題</h2>
     <div class="max-w-3xl mx-auto space-y-4">
       <div class="accordion-item bg-white rounded-xl overflow-hidden border border-brand-border active">
         <button class="w-full px-8 py-6 flex justify-between items-center text-left font-bold hover:bg-gray-50 transition-colors" onclick="toggleAccordion(this)">
-          <span>香港是否支持 7x24 运维？</span>
+          <span data-i18n="faq.q1">香港是否支持 7x24 運維？</span>
           <svg class="icon-arrow w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
         </button>
         <div class="accordion-content px-8 pb-6">
-          <p class="text-sm text-brand-muted">支持。我们提供本地补货与巡检排班，并可接入远程告警系统，确保设备 24 小时在线运营。</p>
+          <p class="text-sm text-brand-muted" data-i18n="faq.a1">支持。我們提供本地補貨與巡檢排班，並可接入遠程告警系統，確保設備 24 小時在線運營。</p>
         </div>
       </div>
 
       <div class="accordion-item bg-white rounded-xl overflow-hidden border border-brand-border">
         <button class="w-full px-8 py-6 flex justify-between items-center text-left font-bold hover:bg-gray-50 transition-colors" onclick="toggleAccordion(this)">
-          <span>智能贩卖机适合哪些场地？</span>
+          <span data-i18n="faq.q2">智能販賣機適合哪些場地？</span>
           <svg class="icon-arrow w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
         </button>
         <div class="accordion-content px-8 pb-6">
-          <p class="text-sm text-brand-muted">主要覆盖写字楼大堂、校园食堂/图书馆、交通枢纽（地铁站/高铁站）、社区中心、医院等高人流场景。</p>
+          <p class="text-sm text-brand-muted" data-i18n="faq.a2">主要覆蓋寫字樓大堂、校園食堂/圖書館、交通樞紐（地鐵站/高鐵站）、社區中心、醫院等高人流場景。</p>
         </div>
       </div>
 
       <div class="accordion-item bg-white rounded-xl overflow-hidden border border-brand-border">
         <button class="w-full px-8 py-6 flex justify-between items-center text-left font-bold hover:bg-gray-50 transition-colors" onclick="toggleAccordion(this)">
-          <span>设备维护和商品补货如何处理？</span>
+          <span data-i18n="faq.q3">設備維護和商品補貨如何處理？</span>
           <svg class="icon-arrow w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
         </button>
         <div class="accordion-content px-8 pb-6">
-          <p class="text-sm text-brand-muted">我们拥有专业的本地运维团队，负责定期补货、设备清洁与故障响应。合作伙伴可通过后台实时查看销售数据与库存状态。</p>
+          <p class="text-sm text-brand-muted" data-i18n="faq.a3">我們擁有專業的本地運維團隊，負責定期補貨、設備清潔與故障響應。合作夥伴可通過後台實時查看銷售數據與庫存狀態。</p>
         </div>
       </div>
 
       <div class="accordion-item bg-white rounded-xl overflow-hidden border border-brand-border">
         <button class="w-full px-8 py-6 flex justify-between items-center text-left font-bold hover:bg-gray-50 transition-colors" onclick="toggleAccordion(this)">
-          <span>合作需要哪些资质和费用？</span>
+          <span data-i18n="faq.q4">合作需要哪些資質和費用？</span>
           <svg class="icon-arrow w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
         </button>
         <div class="accordion-content px-8 pb-6">
-          <p class="text-sm text-brand-muted">具体资质要求和费用方案因合作模式而异。标准加盟门槛较低，区域代理和联营合作则根据点位规模与代理范围定制方案。</p>
+          <p class="text-sm text-brand-muted" data-i18n="faq.a4">具體資質要求和費用方案因合作模式而異。標準加盟門檻較低，區域代理和聯營合作則根據點位規模與代理範圍定制方案。</p>
         </div>
       </div>
     </div>
@@ -358,11 +390,11 @@ tailwind.config = {
   <section id="contact" class="py-16 mb-16">
     <div class="bg-brand-accent rounded-3xl p-10 md:p-16 flex flex-col md:flex-row justify-between items-center gap-8 shadow-2xl shadow-brand-accent/30">
       <div class="text-center md:text-left">
-        <h3 class="text-2xl md:text-3xl font-bold text-white mb-3">立即咨询香港招商经理</h3>
-        <p class="text-white/80">获取点位收益测算与个性化合作方案</p>
+        <h3 class="text-2xl md:text-3xl font-bold text-white mb-3" data-i18n="cta.title">立即咨詢香港招商經理</h3>
+        <p class="text-white/80" data-i18n="cta.desc">獲取點位收益測算與個性化合作方案</p>
       </div>
-      <button class="px-10 py-4 bg-white text-brand-accent rounded-full font-bold hover:bg-brand-bg transition-colors whitespace-nowrap text-lg">
-        预约洽谈
+      <button class="px-10 py-4 bg-white text-brand-accent rounded-full font-bold hover:bg-brand-bg transition-colors whitespace-nowrap text-lg" data-i18n="cta.btn">
+        預約洽談
       </button>
     </div>
   </section>
@@ -374,32 +406,32 @@ tailwind.config = {
     <div class="grid grid-cols-2 md:grid-cols-4 gap-12 mb-12">
       <div class="col-span-2 md:col-span-1">
         <span class="text-2xl font-extrabold tracking-tight">SCMALL <span class="text-brand-accent">HK</span></span>
-        <p class="mt-4 text-sm text-brand-muted leading-relaxed">
-          专注香港智能零售解决方案，打造高效、数字化的商圈闭环。
+        <p class="mt-4 text-sm text-brand-muted leading-relaxed" data-i18n="footer.about">
+          專注香港智能零售解決方案，打造高效、數字化的商圈閉環。
         </p>
       </div>
       <div>
-        <h4 class="font-bold mb-4 text-sm">关于我们</h4>
+        <h4 class="font-bold mb-4 text-sm" data-i18n="footer.aboutUs">關於我們</h4>
         <ul class="space-y-3 text-sm text-brand-muted">
-          <li><a href="#" class="hover:text-brand-accent transition-colors">品牌故事</a></li>
-          <li><a href="#" class="hover:text-brand-accent transition-colors">服务网络</a></li>
-          <li><a href="#" class="hover:text-brand-accent transition-colors">联系我们</a></li>
+          <li><a href="#" class="hover:text-brand-accent transition-colors" data-i18n="footer.story">品牌故事</a></li>
+          <li><a href="#" class="hover:text-brand-accent transition-colors" data-i18n="footer.network">服務網絡</a></li>
+          <li><a href="#" class="hover:text-brand-accent transition-colors" data-i18n="footer.contact">聯繫我們</a></li>
         </ul>
       </div>
       <div>
-        <h4 class="font-bold mb-4 text-sm">招商中心</h4>
+        <h4 class="font-bold mb-4 text-sm" data-i18n="footer.franchise">招商中心</h4>
         <ul class="space-y-3 text-sm text-brand-muted">
-          <li><a href="#" class="hover:text-brand-accent transition-colors">加盟政策</a></li>
-          <li><a href="#" class="hover:text-brand-accent transition-colors">成功案例</a></li>
-          <li><a href="#" class="hover:text-brand-accent transition-colors">常见问题</a></li>
+          <li><a href="#" class="hover:text-brand-accent transition-colors" data-i18n="footer.policy">加盟政策</a></li>
+          <li><a href="#" class="hover:text-brand-accent transition-colors" data-i18n="footer.cases">成功案例</a></li>
+          <li><a href="#" class="hover:text-brand-accent transition-colors" data-i18n="footer.faq">常見問題</a></li>
         </ul>
       </div>
       <div>
-        <h4 class="font-bold mb-4 text-sm">法律信息</h4>
+        <h4 class="font-bold mb-4 text-sm" data-i18n="footer.legal">法律資訊</h4>
         <ul class="space-y-3 text-sm text-brand-muted">
-          <li><a href="#" class="hover:text-brand-accent transition-colors">隐私政策</a></li>
-          <li><a href="#" class="hover:text-brand-accent transition-colors">用户协议</a></li>
-          <li><a href="#" class="hover:text-brand-accent transition-colors">知识产权</a></li>
+          <li><a href="#" class="hover:text-brand-accent transition-colors" data-i18n="footer.privacy">隱私政策</a></li>
+          <li><a href="#" class="hover:text-brand-accent transition-colors" data-i18n="footer.terms">用戶協議</a></li>
+          <li><a href="#" class="hover:text-brand-accent transition-colors" data-i18n="footer.ip">知識產權</a></li>
         </ul>
       </div>
     </div>
@@ -415,18 +447,224 @@ tailwind.config = {
 </footer>
 
 <script>
+const translations = {
+  zh: {
+    pageTitle: 'SCMALL HK - 香港智能販賣機招商加盟',
+    tagline: '智能零售解決方案',
+    'nav.home': '首頁',
+    'nav.products': '全部商品',
+    'nav.franchise': '招商加盟',
+    'nav.contact': '合作方式',
+    'btn.merchant': '商家入駐',
+    'btn.consult': '立即咨詢',
+    'lang.en': 'EN',
+    'lang.zh': '繁',
+    'hero.badge': '香港智能販賣機領導品牌',
+    'hero.title1': '智能販賣機',
+    'hero.title2': '賦能商業新場景',
+    'hero.desc': '以香港本地運營網絡為基礎，覆蓋辦公樓宇、交通樞紐與校園場景，提供穩定補貨、數字化運營與本地化選品能力。',
+    'hero.cta1': '下載招商手冊',
+    'hero.cta2': '查看服務方案',
+    'hero.stats': '智能機點位',
+    'stats.title': '品牌矩陣',
+    'stats.unit': '台',
+    'stats.office.title': '寫字樓精選線',
+    'stats.office.tag': '核心商圈',
+    'stats.campus.title': '校園輕食線',
+    'stats.campus.tag': '高校覆蓋',
+    'stats.hub.title': '交通樞紐線',
+    'stats.hub.tag': '高客流',
+    'stats.community.title': '社區便民線',
+    'stats.community.tag': '24小時',
+    'products.title': '熱門商品',
+    'products.subtitle': '精選即飲飲料、健康零食、咖啡熱飲，覆蓋辦公與休閒場景',
+    'products.viewAll': '查看全部商品',
+    'products.cat1': '即飲飲料',
+    'products.cat2': '健康零食',
+    'products.cat3': '咖啡熱飲',
+    'products.cat4': '個人護理',
+    'product1.name': '維他檸檬茶 310ml',
+    'product1.desc': '港式經典即飲 · 高復購',
+    'product1.sales': '月銷 9,800+',
+    'product2.name': '無糖烏龍茶 500ml',
+    'product2.desc': '輕負擔茶飲 · 午後場景',
+    'product2.sales': '月銷 7,200+',
+    'product3.name': '堅果能量組合裝',
+    'product3.desc': '辦公室補給 · 高毛利',
+    'product3.sales': '月銷 6,500+',
+    'product.apply': '申請上架',
+    'coop.title': '香港智能販賣機加盟與合作',
+    'coop.subtitle': '圍繞品牌展示、產品上架與合作招商，提供面向香港市場的一體化落地解決方案',
+    'coop.stepsTitle': '合作流程',
+    'coop.step1.title': '提交意向',
+    'coop.step1.desc': '提交合作意向與區域信息，預定招商經理對接',
+    'coop.step2.title': '點位評估',
+    'coop.step2.desc': '專業團隊進行點位評估與選品策略建議',
+    'coop.step3.title': '簽約部署',
+    'coop.step3.desc': '簽訂合同與設備部署，香港本地團隊全程服務',
+    'coop.step4.title': '持續運營',
+    'coop.step4.desc': '營運複盤與持續優化，保障穩定收益',
+    'coop.modelsTitle': '加盟方式',
+    'model1.title': '標準加盟',
+    'model1.desc': '適合中小型點位，快速部署熱門飲品與零食機',
+    'model2.title': '區域代理',
+    'model2.desc': '適合連鎖門店與商場渠道，支持多點位統一運維',
+    'model3.title': '聯營合作',
+    'model3.desc': '品牌方與場地聯營收益分成，靈活匹配交通樞紐與寫字樓',
+    'model.hot': '熱門',
+    'model.getPlan': '獲取方案',
+    'model.viewRights': '查看權益',
+    'model.contactNow': '即刻洽談',
+    'faq.title': '常見問題',
+    'faq.q1': '香港是否支持 7x24 運維？',
+    'faq.a1': '支持。我們提供本地補貨與巡檢排班，並可接入遠程告警系統，確保設備 24 小時在線運營。',
+    'faq.q2': '智能販賣機適合哪些場地？',
+    'faq.a2': '主要覆蓋寫字樓大堂、校園食堂/圖書館、交通樞紐（地鐵站/高鐵站）、社區中心、醫院等高人流場景。',
+    'faq.q3': '設備維護和商品補貨如何處理？',
+    'faq.a3': '我們擁有專業的本地運維團隊，負責定期補貨、設備清潔與故障響應。合作夥伴可通過後台實時查看銷售數據與庫存狀態。',
+    'faq.q4': '合作需要哪些資質和費用？',
+    'faq.a4': '具體資質要求和費用方案因合作模式而異。標準加盟門檻較低，區域代理和聯營合作則根據點位規模與代理範圍定制方案。',
+    'cta.title': '立即咨詢香港招商經理',
+    'cta.desc': '獲取點位收益測算與個性化合作方案',
+    'cta.btn': '預約洽談',
+    'footer.about': '專注香港智能零售解決方案，打造高效、數字化的商圈閉環。',
+    'footer.aboutUs': '關於我們',
+    'footer.story': '品牌故事',
+    'footer.network': '服務網絡',
+    'footer.contact': '聯繫我們',
+    'footer.franchise': '招商中心',
+    'footer.policy': '加盟政策',
+    'footer.cases': '成功案例',
+    'footer.faq': '常見問題',
+    'footer.legal': '法律資訊',
+    'footer.privacy': '隱私政策',
+    'footer.terms': '用戶協議',
+    'footer.ip': '知識產權'
+  },
+  en: {
+    pageTitle: 'SCMALL HK - Smart Vending Franchise in Hong Kong',
+    tagline: 'Smart Retail Solutions',
+    'nav.home': 'Home',
+    'nav.products': 'All Products',
+    'nav.franchise': 'Franchise',
+    'nav.contact': 'Contact',
+    'btn.merchant': 'Merchant',
+    'btn.consult': 'Consult Now',
+    'lang.en': 'EN',
+    'lang.zh': '繁',
+    'hero.badge': 'Hong Kong Smart Vending Leader',
+    'hero.title1': 'Smart Vending',
+    'hero.title2': 'Empowering Business',
+    'hero.desc': 'Based on Hong Kong local operation network, covering office buildings, transportation hubs and campus scenarios, providing stable replenishment, digital operations and localized product selection capabilities.',
+    'hero.cta1': 'Download Brochure',
+    'hero.cta2': 'View Plans',
+    'hero.stats': 'Smart Machines',
+    'stats.title': 'Brand Matrix',
+    'stats.unit': 'units',
+    'stats.office.title': 'Office Line',
+    'stats.office.tag': 'Core CBD',
+    'stats.campus.title': 'Campus Line',
+    'stats.campus.tag': 'University',
+    'stats.hub.title': 'Transit Hub',
+    'stats.hub.tag': 'High Traffic',
+    'stats.community.title': 'Community Line',
+    'stats.community.tag': '24/7',
+    'products.title': 'Popular Products',
+    'products.subtitle': 'Premium drinks, healthy snacks, coffee, covering office and leisure scenarios',
+    'products.viewAll': 'View All',
+    'products.cat1': 'Drinks',
+    'products.cat2': 'Snacks',
+    'products.cat3': 'Coffee',
+    'products.cat4': 'Personal Care',
+    'product1.name': 'Vita Lemon Tea 310ml',
+    'product1.desc': 'Hong Kong Classic · High Repurchase',
+    'product1.sales': '9,800+ monthly',
+    'product2.name': 'Sugar-free Oolong Tea 500ml',
+    'product2.desc': 'Light Tea · Afternoon Scene',
+    'product2.sales': '7,200+ monthly',
+    'product3.name': 'Nut Energy Bundle',
+    'product3.desc': 'Office Supply · High Margin',
+    'product3.sales': '6,500+ monthly',
+    'product.apply': 'Apply',
+    'coop.title': 'Hong Kong Smart Vending Franchise',
+    'coop.subtitle': 'Integrated solutions for brand display, product listing and franchise recruitment in Hong Kong market',
+    'coop.stepsTitle': 'Cooperation Process',
+    'coop.step1.title': 'Submit Intent',
+    'coop.step1.desc': 'Submit cooperation intent and area info, book franchise manager',
+    'coop.step2.title': 'Site Evaluation',
+    'coop.step2.desc': 'Professional team conducts site evaluation and product strategy',
+    'coop.step3.title': 'Sign & Deploy',
+    'coop.step3.desc': 'Sign contract and deploy equipment with local Hong Kong team',
+    'coop.step4.title': 'Ongoing Ops',
+    'coop.step4.desc': 'Operation review and continuous optimization for stable revenue',
+    'coop.modelsTitle': 'Franchise Models',
+    'model1.title': 'Standard Franchise',
+    'model1.desc': 'Suitable for small-medium locations, quick deployment of popular drinks and snacks',
+    'model2.title': 'Regional Agent',
+    'model2.desc': 'Suitable for chain stores and mall channels, supporting multi-site unified operations',
+    'model3.title': 'Joint Venture',
+    'model3.desc': 'Brand and venue joint revenue sharing, flexible matching for transit hubs and offices',
+    'model.hot': 'Popular',
+    'model.getPlan': 'Get Plan',
+    'model.viewRights': 'View Rights',
+    'model.contactNow': 'Contact Now',
+    'faq.title': 'FAQ',
+    'faq.q1': 'Does Hong Kong support 7x24 operations?',
+    'faq.a1': 'Yes. We provide local replenishment and inspection scheduling, with remote alarm system integration to ensure 24/7 equipment operation.',
+    'faq.q2': 'What venues are suitable for smart vending?',
+    'faq.a2': 'Mainly covering office building lobbies, campus canteens/libraries, transit hubs (MTR/train stations), community centers, hospitals and other high-traffic scenarios.',
+    'faq.q3': 'How is equipment maintenance and restocking handled?',
+    'faq.a3': 'We have professional local operations team responsible for regular restocking, equipment cleaning and fault response. Partners can view sales data and inventory status in real-time via backend.',
+    'faq.q4': 'What qualifications and fees are required?',
+    'faq.a4': 'Specific qualification requirements and fee plans vary by cooperation model. Standard franchise has lower threshold, while regional agent and joint venture are customized based on location scale and agency scope.',
+    'cta.title': 'Consult Hong Kong Franchise Manager Now',
+    'cta.desc': 'Get location revenue calculation and personalized cooperation plan',
+    'cta.btn': 'Book Meeting',
+    'footer.about': 'Focused on Hong Kong smart retail solutions, creating efficient, digital business circle ecosystem.',
+    'footer.aboutUs': 'About Us',
+    'footer.story': 'Brand Story',
+    'footer.network': 'Service Network',
+    'footer.contact': 'Contact Us',
+    'footer.franchise': 'Franchise Center',
+    'footer.policy': 'Franchise Policy',
+    'footer.cases': 'Success Stories',
+    'footer.faq': 'FAQ',
+    'footer.legal': 'Legal',
+    'footer.privacy': 'Privacy Policy',
+    'footer.terms': 'Terms of Use',
+    'footer.ip': 'IP Rights'
+  }
+};
+
+let currentLang = 'zh';
+
+function toggleLang() {
+  currentLang = currentLang === 'zh' ? 'en' : 'zh';
+  document.getElementById('langToggle').classList.toggle('active', currentLang === 'zh');
+  updateLang();
+}
+
+function updateLang() {
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (translations[currentLang][key]) {
+      el.textContent = translations[currentLang][key];
+    }
+  });
+  document.title = translations[currentLang].pageTitle;
+}
+
 function toggleAccordion(button) {
   const item = button.parentElement;
   const isActive = item.classList.contains('active');
-
-  // Close all
   document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('active'));
-
-  // Open clicked if wasn't active
   if (!isActive) {
     item.classList.add('active');
   }
 }
+
+// Init
+document.getElementById('langToggle').classList.toggle('active', currentLang === 'zh');
 </script>
 </body>
 </html>
