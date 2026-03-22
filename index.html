@@ -8,6 +8,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Be+Vietnam+Pro:wght@400;500;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
 <!-- Tailwind CSS -->
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script>
@@ -73,6 +74,24 @@ tailwind.config = {
   }
   .lang-toggle.active::after {
     transform: translateX(32px);
+  }
+  .editorial-shadow:hover {
+    box-shadow: 0px 20px 40px rgba(74, 70, 64, 0.08);
+  }
+  .material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
   }
 </style>
 </head>
@@ -261,6 +280,149 @@ tailwind.config = {
           <button class="flex items-center gap-2 px-4 py-2 bg-brand-accent text-white text-sm font-bold rounded-lg hover:brightness-110 transition-all">
             <span class="text-lg leading-none">+</span> <span data-i18n="product.apply">申請上架</span>
           </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Refreshment Feed Section -->
+  <section class="py-16 mb-24" id="stories">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+      <div class="max-w-2xl">
+        <span class="text-brand-accent font-bold tracking-widest text-xs uppercase mb-3 block" data-i18n="feed.badge">Community Pulse</span>
+        <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight text-brand-dark leading-none" data-i18n="feed.title">The Refreshment Feed</h2>
+      </div>
+      <p class="text-brand-muted max-w-sm text-sm font-medium leading-relaxed" data-i18n="feed.subtitle">
+        見證 SCMALL 如何重塑現代辦公文化。探索職員好評、商戶成功案例與充滿活力的茶歇瞬間。
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="group relative overflow-hidden rounded-xl bg-white transition-all duration-300 editorial-shadow">
+        <div class="aspect-[4/5] overflow-hidden">
+          <img class="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500" src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=500&fit=crop" alt="Modern office lounge"/>
+        </div>
+        <div class="p-6">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="material-icons text-brand-accent text-sm">favorite</span>
+            <span class="text-xs font-bold uppercase tracking-tighter" data-i18n="feed.card1.location">Central Tech Hub</span>
+          </div>
+          <p class="text-sm italic text-brand-muted font-medium leading-relaxed" data-i18n="feed.card1.quote">"早晨的咖啡吧現在是我們文化中最好的部分。"</p>
+        </div>
+      </div>
+
+      <div class="group relative overflow-hidden rounded-xl bg-white transition-all duration-300 editorial-shadow lg:translate-y-8">
+        <div class="aspect-[4/5] overflow-hidden">
+          <img class="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&h=500&fit=crop" alt="Co-workers laughing"/>
+        </div>
+        <div class="p-6">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="material-icons text-brand-accent text-sm">bolt</span>
+            <span class="text-xs font-bold uppercase tracking-tighter" data-i18n="feed.card2.location">Creative Studio 10</span>
+          </div>
+          <p class="text-sm italic text-brand-muted font-medium leading-relaxed" data-i18n="feed.card2.quote">"觸覺體驗終於能匹配我們工作室的設計美學。"</p>
+        </div>
+      </div>
+
+      <div class="group relative overflow-hidden rounded-xl bg-white transition-all duration-300 editorial-shadow">
+        <div class="aspect-[4/5] overflow-hidden">
+          <img class="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500" src="https://images.unsplash.com/photo-1559305616-3f99cd43e353?w=400&h=500&fit=crop" alt="High-end snacks"/>
+        </div>
+        <div class="p-6">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="material-icons text-brand-accent text-sm">star</span>
+            <span class="text-xs font-bold uppercase tracking-tighter" data-i18n="feed.card3.location">Vertex Finance</span>
+          </div>
+          <p class="text-sm italic text-brand-muted font-medium leading-relaxed" data-i18n="feed.card3.quote">"精選零食讓深夜策略會議持續進行。"</p>
+        </div>
+      </div>
+
+      <div class="group relative overflow-hidden rounded-xl bg-white transition-all duration-300 editorial-shadow lg:translate-y-8">
+        <div class="aspect-[4/5] overflow-hidden">
+          <img class="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=400&h=500&fit=crop" alt="Team meeting"/>
+        </div>
+        <div class="p-6">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="material-icons text-brand-accent text-sm">mood</span>
+            <span class="text-xs font-bold uppercase tracking-tighter" data-i18n="feed.card4.location">Aria Logistics</span>
+          </div>
+          <p class="text-sm italic text-brand-muted font-medium leading-relaxed" data-i18n="feed.card4.quote">"從工作區到 Chill Zone 的過渡感覺完全無縫。"</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Merchant Stories Section -->
+  <section class="py-16 mb-24">
+    <div class="border-t border-brand-border pt-16 mb-16">
+      <h3 class="text-sm font-bold uppercase tracking-[0.2em] text-brand-muted/60 mb-8" data-i18n="stories.badge">Editorial Focus: 商戶故事</h3>
+    </div>
+
+    <!-- Featured Story -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch mb-12">
+      <div class="lg:col-span-7 rounded-xl overflow-hidden relative min-h-[400px]">
+        <img class="absolute inset-0 w-full h-full object-cover" src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&h=600&fit=crop" alt="Executive board room"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+        <div class="absolute bottom-10 left-10 right-10">
+          <span class="bg-brand-accent text-white text-[10px] uppercase font-bold px-3 py-1 rounded-full mb-4 inline-block" data-i18n="stories.featured.tag">精選案例</span>
+          <blockquote class="text-3xl md:text-4xl font-extrabold text-white leading-tight tracking-tight" data-i18n="stories.featured.quote">
+            "我們的茶歇區已成為團隊最喜歡的靈感碰撞點。"
+          </blockquote>
+        </div>
+      </div>
+
+      <div class="lg:col-span-5 bg-white p-10 md:p-12 flex flex-col justify-center rounded-xl border border-brand-border">
+        <h4 class="text-2xl font-bold mb-6 text-brand-dark leading-tight" data-i18n="stories.featured.title">提升全球總部標準</h4>
+        <p class="text-brand-muted mb-8 leading-relaxed" data-i18n="stories.featured.desc">
+          了解一家財富 500 強公司如何將 12 層辦公室轉變為精選的款客服務中心，在第一季度內實現跨部門協作提升 40%。
+        </p>
+        <div class="mt-auto">
+          <a class="inline-flex items-center gap-3 text-brand-accent font-bold group" href="#">
+            <span data-i18n="stories.featured.link">閱讀完整故事</span>
+            <span class="material-icons group-hover:translate-x-1 transition-transform text-lg">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Story Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="p-10 bg-white rounded-xl border border-brand-border flex flex-col">
+        <div class="flex items-center gap-4 mb-8">
+          <div class="w-16 h-16 rounded-full overflow-hidden bg-brand-border">
+            <img class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop" alt="Portrait"/>
+          </div>
+          <div>
+            <p class="font-bold text-brand-dark" data-i18n="stories.card1.name">Mark J. Sterling</p>
+            <p class="text-xs text-brand-muted uppercase tracking-wider" data-i18n="stories.card1.role">設施總監</p>
+          </div>
+        </div>
+        <blockquote class="text-xl md:text-2xl font-bold text-brand-accent mb-6 italic leading-snug" data-i18n="stories.card1.quote">
+          "告別無聊的辦公室咖啡。SCMALL 為我們打造了感官體驗。"
+        </blockquote>
+        <p class="text-sm text-brand-muted leading-relaxed mb-8" data-i18n="stories.card1.desc">
+          從自動販賣機到 Tactile Curator 模式的轉變，通過提供一個真正的休憩空間，将创意部门的员工流动率降低。
+        </p>
+        <button class="mt-auto self-start px-6 py-2 rounded-full border border-brand-accent/20 hover:bg-brand-accent/5 transition-all text-sm font-bold" data-i18n="stories.card1.btn">
+          查看圖庫
+        </button>
+      </div>
+
+      <div class="p-10 bg-brand-accent text-white rounded-xl flex flex-col">
+        <div class="mb-12">
+          <span class="material-icons text-5xl opacity-40">format_quote</span>
+        </div>
+        <h4 class="text-3xl font-extrabold mb-6 leading-tight" data-i18n="stories.card2.title">
+          在 15 個分支辦公室擴展文化
+        </h4>
+        <p class="opacity-80 leading-relaxed mb-10" data-i18n="stories.card2.desc">
+          "一致性是我們最大的挑戰。SCMALL 使我們能夠在全球範圍內部署相同的高端茶歇體驗，同時尊重當地口味。"
+        </p>
+        <div class="mt-auto flex justify-between items-center">
+          <span class="text-xs font-bold uppercase tracking-widest opacity-60" data-i18n="stories.card2.case">案例 #402</span>
+          <a class="bg-white text-brand-accent p-3 rounded-full hover:scale-110 transition-transform" href="#">
+            <span class="material-icons block">play_arrow</span>
+          </a>
         </div>
       </div>
     </div>
@@ -539,7 +701,32 @@ const translations = {
     'footer.legal': '法律資訊',
     'footer.privacy': '隱私政策',
     'footer.terms': '用戶協議',
-    'footer.ip': '知識產權'
+    'footer.ip': '知識產權',
+    'feed.badge': 'Community Pulse',
+    'feed.title': 'The Refreshment Feed',
+    'feed.subtitle': '見證 SCMALL 如何重塑現代辦公文化。探索職員好評、商戶成功案例與充滿活力的茶歇瞬間。',
+    'feed.card1.location': 'Central Tech Hub',
+    'feed.card1.quote': '"早晨的咖啡吧現在是我們文化中最好的部分。"',
+    'feed.card2.location': 'Creative Studio 10',
+    'feed.card2.quote': '"觸覺體驗終於能匹配我們工作室的設計美學。"',
+    'feed.card3.location': 'Vertex Finance',
+    'feed.card3.quote': '"精選零食讓深夜策略會議持續進行。"',
+    'feed.card4.location': 'Aria Logistics',
+    'feed.card4.quote': '"從工作區到 Chill Zone 的過渡感覺完全無縫。"',
+    'stories.badge': 'Editorial Focus: 商戶故事',
+    'stories.featured.tag': '精選案例',
+    'stories.featured.quote': '"我們的茶歇區已成為團隊最喜歡的靈感碰撞點。"',
+    'stories.featured.title': '提升全球總部標準',
+    'stories.featured.desc': '了解一家財富 500 強公司如何將 12 層辦公室轉變為精選的款客服務中心，在第一季度內實現跨部門協作提升 40%。',
+    'stories.featured.link': '閱讀完整故事',
+    'stories.card1.name': 'Mark J. Sterling',
+    'stories.card1.role': '設施總監',
+    'stories.card1.quote': '"告別無聊的辦公室咖啡。SCMALL 為我們打造了感官體驗。"',
+    'stories.card1.desc': '從自動販賣機到 Tactile Curator 模式的轉變，通過提供一個真正的休憩空間，将创意部门的员工流动率降低。',
+    'stories.card1.btn': '查看圖庫',
+    'stories.card2.title': '在 15 個分支辦公室擴展文化',
+    'stories.card2.desc': '"一致性是我們最大的挑戰。SCMALL 使我們能夠在全球範圍內部署相同的高端茶歇體驗，同時尊重當地口味。"',
+    'stories.card2.case': '案例 #402'
   },
   en: {
     pageTitle: 'SCMALL HK - Smart Vending Franchise in Hong Kong',
@@ -632,7 +819,32 @@ const translations = {
     'footer.legal': 'Legal',
     'footer.privacy': 'Privacy Policy',
     'footer.terms': 'Terms of Use',
-    'footer.ip': 'IP Rights'
+    'footer.ip': 'IP Rights',
+    'feed.badge': 'Community Pulse',
+    'feed.title': 'The Refreshment Feed',
+    'feed.subtitle': 'Real-time glimpses into how modern workspaces are redefining the breakroom experience with SCMALL.',
+    'feed.card1.location': 'Central Tech Hub',
+    'feed.card1.quote': '"The morning rush for the espresso bar is now the best part of our culture."',
+    'feed.card2.location': 'Creative Studio 10',
+    'feed.card2.quote': '"A tactile experience that finally matches our studio\'s design aesthetic."',
+    'feed.card3.location': 'Vertex Finance',
+    'feed.card3.quote': '"Curated snacks that keep the late-night strategy sessions moving."',
+    'feed.card4.location': 'Aria Logistics',
+    'feed.card4.quote': '"The transition from workspace to Chill Zone feels completely seamless."',
+    'stories.badge': 'Editorial Focus: Merchant Stories',
+    'stories.featured.tag': 'Featured Case Study',
+    'stories.featured.quote': '"Our breakroom has become the team\'s favorite collision point."',
+    'stories.featured.title': 'Elevating Global Headquarter Standards',
+    'stories.featured.desc': 'Learn how a Fortune 500 company transformed 12 office floors into curated hospitality hubs, seeing a 40% increase in cross-department collaboration within the first quarter.',
+    'stories.featured.link': 'Read the full narrative',
+    'stories.card1.name': 'Mark J. Sterling',
+    'stories.card1.role': 'Facilities Director',
+    'stories.card1.quote': '"Gone are the days of boring office coffee. SCMALL curated a sensory experience."',
+    'stories.card1.desc': 'The shift from vending machines to a Tactile Curator model reduced turnover in our creative department by providing a dedicated space for genuine recharge.',
+    'stories.card1.btn': 'View Gallery',
+    'stories.card2.title': 'Scaling Culture Across 15 Branch Offices',
+    'stories.card2.desc': '"Consistency was our biggest challenge. SCMALL allowed us to deploy the same high-end refreshment experience globally while respecting local tastes."',
+    'stories.card2.case': 'Case Study #402'
   }
 };
 
