@@ -93,6 +93,19 @@ tailwind.config = {
     -webkit-font-feature-settings: 'liga';
     -webkit-font-smoothing: antialiased;
   }
+  .faq-card.active {
+    border-color: #CD2948;
+    background: #CD2948;
+  }
+  .faq-card.active span {
+    color: white;
+  }
+  .faq-answer {
+    transition: opacity 0.3s ease;
+  }
+  .faq-answer.hidden {
+    display: none;
+  }
 </style>
 </head>
 <body class="bg-brand-bg text-brand-dark font-sans antialiased">
@@ -505,45 +518,40 @@ tailwind.config = {
   <!-- FAQ Section -->
   <section class="py-16">
     <h2 class="text-2xl md:text-3xl font-bold mb-10 text-center" data-i18n="faq.title">常見問題</h2>
-    <div class="max-w-3xl mx-auto space-y-4">
-      <div class="accordion-item bg-white rounded-xl overflow-hidden border border-brand-border active">
-        <button class="w-full px-8 py-6 flex justify-between items-center text-left font-bold hover:bg-gray-50 transition-colors" onclick="toggleAccordion(this)">
-          <span data-i18n="faq.q1">香港是否支持 7x24 運維？</span>
-          <svg class="icon-arrow w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-        </button>
-        <div class="accordion-content px-8 pb-6">
-          <p class="text-sm text-brand-muted" data-i18n="faq.a1">支持。我們提供本地補貨與巡檢排班，並可接入遠程告警系統，確保設備 24 小時在線運營。</p>
-        </div>
-      </div>
 
-      <div class="accordion-item bg-white rounded-xl overflow-hidden border border-brand-border">
-        <button class="w-full px-8 py-6 flex justify-between items-center text-left font-bold hover:bg-gray-50 transition-colors" onclick="toggleAccordion(this)">
-          <span data-i18n="faq.q2">智能販賣機適合哪些場地？</span>
-          <svg class="icon-arrow w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-        </button>
-        <div class="accordion-content px-8 pb-6">
-          <p class="text-sm text-brand-muted" data-i18n="faq.a2">主要覆蓋寫字樓大堂、校園食堂/圖書館、交通樞紐（地鐵站/高鐵站）、社區中心、醫院等高人流場景。</p>
-        </div>
-      </div>
+    <!-- FAQ Question Cards - Horizontal Layout -->
+    <div class="flex flex-wrap justify-center gap-4 mb-8">
+      <button class="faq-card w-[60px] h-[60px] rounded-xl bg-white border border-brand-border flex flex-col items-center justify-center hover:border-brand-accent hover:bg-brand-accent/5 transition-all duration-300 active" data-faq="1">
+        <span class="text-lg font-bold text-brand-accent">1</span>
+      </button>
+      <button class="faq-card w-[60px] h-[60px] rounded-xl bg-white border border-brand-border flex flex-col items-center justify-center hover:border-brand-accent hover:bg-brand-accent/5 transition-all duration-300" data-faq="2">
+        <span class="text-lg font-bold text-brand-accent">2</span>
+      </button>
+      <button class="faq-card w-[60px] h-[60px] rounded-xl bg-white border border-brand-border flex flex-col items-center justify-center hover:border-brand-accent hover:bg-brand-accent/5 transition-all duration-300" data-faq="3">
+        <span class="text-lg font-bold text-brand-accent">3</span>
+      </button>
+      <button class="faq-card w-[60px] h-[60px] rounded-xl bg-white border border-brand-border flex flex-col items-center justify-center hover:border-brand-accent hover:bg-brand-accent/5 transition-all duration-300" data-faq="4">
+        <span class="text-lg font-bold text-brand-accent">4</span>
+      </button>
+    </div>
 
-      <div class="accordion-item bg-white rounded-xl overflow-hidden border border-brand-border">
-        <button class="w-full px-8 py-6 flex justify-between items-center text-left font-bold hover:bg-gray-50 transition-colors" onclick="toggleAccordion(this)">
-          <span data-i18n="faq.q3">設備維護和商品補貨如何處理？</span>
-          <svg class="icon-arrow w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-        </button>
-        <div class="accordion-content px-8 pb-6">
-          <p class="text-sm text-brand-muted" data-i18n="faq.a3">我們擁有專業的本地運維團隊，負責定期補貨、設備清潔與故障響應。合作夥伴可通過後台實時查看銷售數據與庫存狀態。</p>
-        </div>
+    <!-- FAQ Answers -->
+    <div class="max-w-3xl mx-auto">
+      <div class="faq-answer bg-white rounded-xl border border-brand-border p-8 active" data-answer="1">
+        <h3 class="font-bold text-lg mb-3" data-i18n="faq.q1">香港是否支持 7x24 運維？</h3>
+        <p class="text-brand-muted" data-i18n="faq.a1">支持。我們提供本地補貨與巡檢排班，並可接入遠程告警系統，確保設備 24 小時在線運營。</p>
       </div>
-
-      <div class="accordion-item bg-white rounded-xl overflow-hidden border border-brand-border">
-        <button class="w-full px-8 py-6 flex justify-between items-center text-left font-bold hover:bg-gray-50 transition-colors" onclick="toggleAccordion(this)">
-          <span data-i18n="faq.q4">合作需要哪些資質和費用？</span>
-          <svg class="icon-arrow w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-        </button>
-        <div class="accordion-content px-8 pb-6">
-          <p class="text-sm text-brand-muted" data-i18n="faq.a4">具體資質要求和費用方案因合作模式而異。標準加盟門檻較低，區域代理和聯營合作則根據點位規模與代理範圍定制方案。</p>
-        </div>
+      <div class="faq-answer bg-white rounded-xl border border-brand-border p-8 hidden" data-answer="2">
+        <h3 class="font-bold text-lg mb-3" data-i18n="faq.q2">智能販賣機適合哪些場地？</h3>
+        <p class="text-brand-muted" data-i18n="faq.a2">主要覆蓋寫字樓大堂、校園食堂/圖書館、交通樞紐（地鐵站/高鐵站）、社區中心、醫院等高人流場景。</p>
+      </div>
+      <div class="faq-answer bg-white rounded-xl border border-brand-border p-8 hidden" data-answer="3">
+        <h3 class="font-bold text-lg mb-3" data-i18n="faq.q3">設備維護和商品補貨如何處理？</h3>
+        <p class="text-brand-muted" data-i18n="faq.a3">我們擁有專業的本地運維團隊，負責定期補貨、設備清潔與故障響應。合作夥伴可通過後台實時查看銷售數據與庫存狀態。</p>
+      </div>
+      <div class="faq-answer bg-white rounded-xl border border-brand-border p-8 hidden" data-answer="4">
+        <h3 class="font-bold text-lg mb-3" data-i18n="faq.q4">合作需要哪些資質和費用？</h3>
+        <p class="text-brand-muted" data-i18n="faq.a4">具體資質要求和費用方案因合作模式而異。標準加盟門檻較低，區域代理和聯營合作則根據點位規模與代理範圍定制方案。</p>
       </div>
     </div>
   </section>
@@ -874,6 +882,21 @@ function toggleAccordion(button) {
     item.classList.add('active');
   }
 }
+
+// FAQ Card Click Handler
+document.querySelectorAll('.faq-card').forEach(card => {
+  card.addEventListener('click', () => {
+    const faqId = card.getAttribute('data-faq');
+
+    // Update card states
+    document.querySelectorAll('.faq-card').forEach(c => c.classList.remove('active'));
+    card.classList.add('active');
+
+    // Update answer visibility
+    document.querySelectorAll('.faq-answer').forEach(a => a.classList.add('hidden'));
+    document.querySelector(`.faq-answer[data-answer="${faqId}"]`).classList.remove('hidden');
+  });
+});
 
 // Init
 document.getElementById('langToggle').classList.toggle('active', currentLang === 'zh');
