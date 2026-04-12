@@ -78,6 +78,17 @@ tailwind.config = {
   .editorial-shadow:hover {
     box-shadow: 0px 20px 40px rgba(74, 70, 64, 0.08);
   }
+  .logo-img {
+    mask-image: url(https://minimax-algeng-chat-tts.oss-cn-wulanchabu.aliyuncs.com/ccv2%2F2026-04-12%2FMiniMax-M2.7%2F2027048564114333893%2F9a31f86a5dd8189eefed20a870b32dfa85efc7e071737ff25c9e224b251a1e7f..png?Expires=1776067577&OSSAccessKeyId=LTAI5tGLnRTkBjLuYPjNcKQ8&Signature=sCmAnTCAVpewWExDNN6i1UiZIss%3D);
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    -webkit-mask-image: url(https://minimax-algeng-chat-tts.oss-cn-wulanchabu.aliyuncs.com/ccv2%2F2026-04-12%2FMiniMax-M2.7%2F2027048564114333893%2F9a31f86a5dd8189eefed20a870b32dfa85efc7e071737ff25c9e224b251a1e7f..png?Expires=1776067577&OSSAccessKeyId=LTAI5tGLnRTkBjLuYPjNcKQ8&Signature=sCmAnTCAVpewWExDNN6i1UiZIss%3D);
+    -webkit-mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+  }
+
   .material-icons {
     font-family: 'Material Icons';
     font-weight: normal;
@@ -115,12 +126,8 @@ tailwind.config = {
     <div class="flex justify-between items-center">
       <!-- Logo -->
       <div class="flex items-center gap-3">
-        <div class="w-10 h-10 bg-brand-accent rounded-lg flex items-center justify-center">
-          <span class="text-white text-xl font-bold">S</span>
-        </div>
-        <div>
-          <span class="text-xl font-extrabold tracking-tight">SCMALL <span class="text-brand-accent">HK</span></span>
-          <p class="text-xs text-brand-muted -mt-1" data-i18n="tagline">智能零售解決方案</p>
+        <div class="h-[60px] flex items-center justify-center">
+          <img src="https://minimax-algeng-chat-tts.oss-cn-wulanchabu.aliyuncs.com/ccv2%2F2026-04-12%2FMiniMax-M2.7%2F2027048564114333893%2F9a31f86a5dd8189eefed20a870b32dfa85efc7e071737ff25c9e224b251a1e7f..png?Expires=1776067577&OSSAccessKeyId=LTAI5tGLnRTkBjLuYPjNcKQ8&Signature=sCmAnTCAVpewWExDNN6i1UiZIss%3D" alt="SCMALL HK Logo" class="h-[60px] w-auto object-contain" />
         </div>
       </div>
       <!-- Nav -->
@@ -150,8 +157,8 @@ tailwind.config = {
 
 <main class="max-w-7xl mx-auto px-6">
   <!-- Hero Section -->
-  <section id="home" class="py-16 md:py-24">
-    <div class="flex flex-col lg:flex-row items-center gap-12">
+  <section id="home" class="py-10 md:py-16">
+    <div class="flex flex-col lg:flex-row items-center gap-8">
       <div class="flex-1">
         <span class="inline-block px-4 py-2 bg-brand-accent/10 text-brand-accent text-xs font-bold uppercase tracking-widest rounded-full mb-6" data-i18n="hero.badge">
           香港智能販賣機領導品牌
@@ -174,10 +181,10 @@ tailwind.config = {
       </div>
       <div class="flex-1 w-full">
         <div class="relative">
-          <div class="aspect-square bg-gradient-to-br from-brand-border to-brand-bg rounded-3xl overflow-hidden shadow-2xl">
-            <img src="https://images.unsplash.com/photo-1556742393-d75f468bfcb0?w=800&h=800&fit=crop" alt="Smart Vending Machine" class="w-full h-full object-cover"/>
+          <div class="aspect-[4/3] bg-gradient-to-br from-brand-border to-brand-bg rounded-3xl overflow-hidden shadow-2xl">
+            <img src="https://minimax-algeng-chat-tts.oss-cn-wulanchabu.aliyuncs.com/ccv2%2F2026-04-12%2FMiniMax-M2.7%2F2027048564114333893%2F6479e942f51446f18a6a22d5cef61128b7b3bc8c3211f9b0f527cbc4d6de2625..jpeg?Expires=1776067489&OSSAccessKeyId=LTAI5tGLnRTkBjLuYPjNcKQ8&Signature=04OOLZSEyOBfHse68Lf75D1t4J8%3D" alt="SCMALL HK Hero" class="w-full h-full object-cover"/>
           </div>
-          <div class="absolute -bottom-6 -left-6 bg-white rounded-2xl p-6 shadow-xl border border-brand-border">
+          <div class="absolute -bottom-4 -left-4 bg-white rounded-2xl p-5 shadow-xl border border-brand-border">
             <div class="flex items-center gap-4">
               <div class="w-14 h-14 bg-brand-accent/10 rounded-xl flex items-center justify-center">
                 <span class="text-3xl">📦</span>
@@ -310,58 +317,8 @@ tailwind.config = {
       </p>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      <div class="group relative overflow-hidden rounded-xl bg-white transition-all duration-300 editorial-shadow">
-        <div class="aspect-[4/5] overflow-hidden">
-          <img class="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500" src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=500&fit=crop" alt="Modern office lounge"/>
-        </div>
-        <div class="p-6">
-          <div class="flex items-center gap-2 mb-3">
-            <span class="material-icons text-brand-accent text-sm">favorite</span>
-            <span class="text-xs font-bold uppercase tracking-tighter" data-i18n="feed.card1.location">Central Tech Hub</span>
-          </div>
-          <p class="text-sm italic text-brand-muted font-medium leading-relaxed" data-i18n="feed.card1.quote">"早晨的咖啡吧現在是我們文化中最好的部分。"</p>
-        </div>
-      </div>
-
-      <div class="group relative overflow-hidden rounded-xl bg-white transition-all duration-300 editorial-shadow lg:translate-y-8">
-        <div class="aspect-[4/5] overflow-hidden">
-          <img class="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&h=500&fit=crop" alt="Co-workers laughing"/>
-        </div>
-        <div class="p-6">
-          <div class="flex items-center gap-2 mb-3">
-            <span class="material-icons text-brand-accent text-sm">bolt</span>
-            <span class="text-xs font-bold uppercase tracking-tighter" data-i18n="feed.card2.location">Creative Studio 10</span>
-          </div>
-          <p class="text-sm italic text-brand-muted font-medium leading-relaxed" data-i18n="feed.card2.quote">"觸覺體驗終於能匹配我們工作室的設計美學。"</p>
-        </div>
-      </div>
-
-      <div class="group relative overflow-hidden rounded-xl bg-white transition-all duration-300 editorial-shadow">
-        <div class="aspect-[4/5] overflow-hidden">
-          <img class="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500" src="https://images.unsplash.com/photo-1559305616-3f99cd43e353?w=400&h=500&fit=crop" alt="High-end snacks"/>
-        </div>
-        <div class="p-6">
-          <div class="flex items-center gap-2 mb-3">
-            <span class="material-icons text-brand-accent text-sm">star</span>
-            <span class="text-xs font-bold uppercase tracking-tighter" data-i18n="feed.card3.location">Vertex Finance</span>
-          </div>
-          <p class="text-sm italic text-brand-muted font-medium leading-relaxed" data-i18n="feed.card3.quote">"精選零食讓深夜策略會議持續進行。"</p>
-        </div>
-      </div>
-
-      <div class="group relative overflow-hidden rounded-xl bg-white transition-all duration-300 editorial-shadow lg:translate-y-8">
-        <div class="aspect-[4/5] overflow-hidden">
-          <img class="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=400&h=500&fit=crop" alt="Team meeting"/>
-        </div>
-        <div class="p-6">
-          <div class="flex items-center gap-2 mb-3">
-            <span class="material-icons text-brand-accent text-sm">mood</span>
-            <span class="text-xs font-bold uppercase tracking-tighter" data-i18n="feed.card4.location">Aria Logistics</span>
-          </div>
-          <p class="text-sm italic text-brand-muted font-medium leading-relaxed" data-i18n="feed.card4.quote">"從工作區到 Chill Zone 的過渡感覺完全無縫。"</p>
-        </div>
-      </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="activityGrid">
+      <!-- Activity cards injected by JS -->
     </div>
   </section>
 
@@ -374,24 +331,24 @@ tailwind.config = {
     <!-- Featured Story -->
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch mb-12">
       <div class="lg:col-span-7 rounded-xl overflow-hidden relative min-h-[400px]">
-        <img class="absolute inset-0 w-full h-full object-cover" src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&h=600&fit=crop" alt="Executive board room"/>
+        <img class="absolute inset-0 w-full h-full object-cover" src="https://minimax-algeng-chat-tts.oss-cn-wulanchabu.aliyuncs.com/ccv2%2F2026-04-12%2FMiniMax-M2.7%2F2027048564114333893%2Fa96fd8dc6513dc28d4ea9f2f926e88e971bb20933a5ee8f5305e82f11544f2c2..jpeg?Expires=1776067870&OSSAccessKeyId=LTAI5tGLnRTkBjLuYPjNcKQ8&Signature=UsbHtUL64m3bBZKeC%2BXqo9aywfQ%3D" alt="Executive board room"/>
         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
         <div class="absolute bottom-10 left-10 right-10">
           <span class="bg-brand-accent text-white text-[10px] uppercase font-bold px-3 py-1 rounded-full mb-4 inline-block" data-i18n="stories.featured.tag">精選案例</span>
           <blockquote class="text-3xl md:text-4xl font-extrabold text-white leading-tight tracking-tight" data-i18n="stories.featured.quote">
-            "我們的茶歇區已成為團隊最喜歡的靈感碰撞點。"
+            "健康生活，從每一口新鮮開始。"
           </blockquote>
         </div>
       </div>
 
       <div class="lg:col-span-5 bg-white p-10 md:p-12 flex flex-col justify-center rounded-xl border border-brand-border">
-        <h4 class="text-2xl font-bold mb-6 text-brand-dark leading-tight" data-i18n="stories.featured.title">提升全球總部標準</h4>
+        <h4 class="text-2xl font-bold mb-6 text-brand-dark leading-tight" data-i18n="stories.featured.title">Chill Zone 入駐嘉多娜麵包店</h4>
         <p class="text-brand-muted mb-8 leading-relaxed" data-i18n="stories.featured.desc">
-          了解一家財富 500 強公司如何將 12 層辦公室轉變為精選的款客服務中心，在第一季度內實現跨部門協作提升 40%。
+          嘉多娜麵包店以天然食材與每日新鮮出爐聞名，引入 Chill Zone 健康飲品專區後，顧客在排隊等候時即可享用低糖果汁與草本茶飲，實現「購包配飲」的一站式健康生活體驗。
         </p>
         <div class="mt-auto">
           <a class="inline-flex items-center gap-3 text-brand-accent font-bold group" href="#">
-            <span data-i18n="stories.featured.link">閱讀完整故事</span>
+            <span data-i18n="stories.featured.link">探索更多案例</span>
             <span class="material-icons group-hover:translate-x-1 transition-transform text-lg">arrow_forward</span>
           </a>
         </div>
@@ -723,10 +680,10 @@ const translations = {
     'feed.card4.quote': '"從工作區到 Chill Zone 的過渡感覺完全無縫。"',
     'stories.badge': 'Editorial Focus: 商戶故事',
     'stories.featured.tag': '精選案例',
-    'stories.featured.quote': '"我們的茶歇區已成為團隊最喜歡的靈感碰撞點。"',
-    'stories.featured.title': '提升全球總部標準',
-    'stories.featured.desc': '了解一家財富 500 強公司如何將 12 層辦公室轉變為精選的款客服務中心，在第一季度內實現跨部門協作提升 40%。',
-    'stories.featured.link': '閱讀完整故事',
+    'stories.featured.quote': '"健康生活，從每一口新鮮開始。"',
+    'stories.featured.title': 'Chill Zone 入駐嘉多娜麵包店',
+    'stories.featured.desc': '嘉多娜麵包店以天然食材與每日新鮮出爐聞名，引入 Chill Zone 健康飲品專區後，顧客在排隊等候時即可享用低糖果汁與草本茶飲，實現「購包配飲」的一站式健康生活體驗。',
+    'stories.featured.link': '探索更多案例',
     'stories.card1.name': 'Mark J. Sterling',
     'stories.card1.role': '設施總監',
     'stories.card1.quote': '"告別無聊的辦公室咖啡。SCMALL 為我們打造了感官體驗。"',
@@ -841,10 +798,10 @@ const translations = {
     'feed.card4.quote': '"The transition from workspace to Chill Zone feels completely seamless."',
     'stories.badge': 'Editorial Focus: Merchant Stories',
     'stories.featured.tag': 'Featured Case Study',
-    'stories.featured.quote': '"Our breakroom has become the team\'s favorite collision point."',
-    'stories.featured.title': 'Elevating Global Headquarter Standards',
-    'stories.featured.desc': 'Learn how a Fortune 500 company transformed 12 office floors into curated hospitality hubs, seeing a 40% increase in cross-department collaboration within the first quarter.',
-    'stories.featured.link': 'Read the full narrative',
+    'stories.featured.quote': '"Healthy living starts with every fresh bite."',
+    'stories.featured.title': 'Chill Zone x Gadorna Bakery',
+    'stories.featured.desc': 'Known for natural ingredients and daily fresh bakes, Gadorna Bakery introduced the Chill Zone healthy beverage zone, letting customers enjoy low-sugar juices and herbal teas while waiting — a one-stop healthy lifestyle experience.',
+    'stories.featured.link': 'Explore More Cases',
     'stories.card1.name': 'Mark J. Sterling',
     'stories.card1.role': 'Facilities Director',
     'stories.card1.quote': '"Gone are the days of boring office coffee. SCMALL curated a sensory experience."',
@@ -900,6 +857,167 @@ document.querySelectorAll('.faq-card').forEach(card => {
 
 // Init
 document.getElementById('langToggle').classList.toggle('active', currentLang === 'zh');
+
+// Activity Card Data
+const activities = [
+  {
+    name: '啟航1331春節',
+    nameEn: 'Qihang 1331 CNY',
+    icon: 'celebration',
+    images: [
+      'images/activities/微信图片_20260411235631_917_2830.jpg',
+      'images/activities/微信图片_20260411235632_918_2830.jpg',
+    ],
+    zh: {
+      location: '觀塘海濱',
+      quote: '新春舞獅賀歲，喜慶紅金滿堂。傳統文化與現代零售的完美碰撞。'
+    },
+    en: {
+      location: 'Kwun Tong Waterfront',
+      quote: 'Lion dance performances and festive CNY vibes at Chill Zone.'
+    }
+  },
+  {
+    name: '啟航1331實體店',
+    nameEn: 'Qihang 1331 Store',
+    icon: 'store',
+    images: [
+      'images/activities/微信图片_20260411235453_913_2830.jpg',
+      'images/activities/微信图片_20260411235454_914_2830.jpg',
+    ],
+    zh: {
+      location: '啟晴工廠大廈',
+      quote: '霓虹燈下的靈感補給站，工業風與都市生活的創意融合。'
+    },
+    en: {
+      location: 'Heng Qing Factory Building',
+      quote: 'Neon-lit Chill Zone store, where industry meets urban lifestyle.'
+    }
+  },
+  {
+    name: 'Panash',
+    nameEn: 'Panash',
+    icon: 'local_cafe',
+    images: [
+      'images/activities/微信图片_20260411235138_902_2830.jpg',
+      'images/activities/微信图片_20260411235139_904_2830.jpg',
+      'images/activities/微信图片_20260411235140_905_2830.jpg',
+    ],
+    zh: {
+      location: '九龍市區',
+      quote: '精品麵包與潮流飲品完美搭配，開啟元氣滿滿的每一天。'
+    },
+    en: {
+      location: 'Kowloon District',
+      quote: 'Artisan bakery meets Chill Zone — a perfect pairing for every day.'
+    }
+  },
+  {
+    name: 'Sky 商場電影城',
+    nameEn: 'Sky Mall Cinema',
+    icon: 'movie',
+    images: [
+      'images/activities/微信图片_20260411235038_894_2830.jpg',
+    ],
+    zh: {
+      location: '將軍澳',
+      quote: '城市中的休憩綠洲，在繁忙中享受一刻精緻從容。'
+    },
+    en: {
+      location: 'Tseung Kwan O',
+      quote: 'An urban retreat — finding elegance in the midst of city bustle.'
+    }
+  }
+];
+
+let currentActivityLang = 'zh';
+
+function renderActivities() {
+  const grid = document.getElementById('activityGrid');
+  if (!grid) return;
+
+  grid.innerHTML = activities.map((act, i) => {
+    const info = act[currentActivityLang === 'zh' ? 'zh' : 'en'];
+    const img = act.images[0];
+    return `
+      <div class="group relative overflow-hidden rounded-xl bg-white transition-all duration-300 editorial-shadow flex flex-col" style="grid-column: ${i === 2 || i === 3 ? 'span 1' : ''}">
+        <div class="relative aspect-[4/5] overflow-hidden bg-gray-100">
+          <img
+            id="actImg${i}"
+            class="w-full h-full object-cover transition-all duration-500"
+            src="${img}"
+            alt="${act.name}"
+            loading="lazy"
+          />
+          ${act.images.length > 1 ? `
+          <button
+            onclick="switchImg(${i}, -1)"
+            class="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/80 hover:bg-white flex items-center justify-center text-brand-dark shadow transition-all"
+            style="opacity: 0.7"
+          >
+            <span class="material-icons text-sm">chevron_left</span>
+          </button>
+          <button
+            onclick="switchImg(${i}, 1)"
+            class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/80 hover:bg-white flex items-center justify-center text-brand-dark shadow transition-all"
+            style="opacity: 0.7"
+          >
+            <span class="material-icons text-sm">chevron_right</span>
+          </button>
+          <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
+            ${act.images.map((_, idx) => `
+              <span class="w-1.5 h-1.5 rounded-full bg-white/60 transition-all" id="actDot${i}_${idx}"></span>
+            `).join('')}
+          </div>
+          ` : ''}
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="material-icons text-brand-accent text-sm">${act.icon}</span>
+            <span class="text-xs font-bold uppercase tracking-tighter text-brand-muted">${info.location}</span>
+          </div>
+          <h3 class="text-base font-extrabold text-brand-dark mb-2">${currentActivityLang === 'zh' ? act.name : act.nameEn}</h3>
+          <p class="text-sm italic text-brand-muted font-medium leading-relaxed flex-1">"${info.quote}"</p>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  // Mark first dot as active
+  activities.forEach((_, i) => {
+    const dot = document.getElementById(`actDot${i}_0`);
+    if (dot) dot.style.background = 'white';
+  });
+}
+
+function switchImg(index, direction) {
+  const act = activities[index];
+  const currentSrc = document.getElementById(`actImg${index}`).src;
+  const decoded = decodeURIComponent(currentSrc.replace('file://', ''));
+
+  let currentIdx = act.images.findIndex(img => decoded.endsWith(img.split('/').pop()));
+  if (currentIdx < 0) currentIdx = 0;
+
+  const newIdx = (currentIdx + direction + act.images.length) % act.images.length;
+  const newSrc = 'file://' + encodeURI(act.images[newIdx]);
+  document.getElementById(`actImg${index}`).src = newSrc;
+
+  // Update dots
+  act.images.forEach((_, idx) => {
+    const dot = document.getElementById(`actDot${index}_${idx}`);
+    if (dot) dot.style.background = idx === newIdx ? 'white' : 'rgba(255,255,255,0.5)';
+  });
+}
+
+// Override toggleLang to also re-render activities
+const _origToggleLang = toggleLang;
+function toggleLang() {
+  _origToggleLang();
+  currentActivityLang = currentActivityLang === 'zh' ? 'en' : 'zh';
+  renderActivities();
+}
+
+renderActivities();
 </script>
 </body>
 </html>
