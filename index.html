@@ -104,18 +104,128 @@ tailwind.config = {
     -webkit-font-feature-settings: 'liga';
     -webkit-font-smoothing: antialiased;
   }
-  .faq-card.active {
-    border-color: #CD2948;
-    background: #CD2948;
-  }
-  .faq-card.active span {
-    color: white;
-  }
   .faq-answer {
     transition: opacity 0.3s ease;
   }
   .faq-answer.hidden {
     display: none;
+  }
+
+  /* Floating FAQ Button */
+  .faq-float-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 1000;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #CD2948;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(205, 41, 72, 0.4);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .faq-float-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 28px rgba(205, 41, 72, 0.5);
+  }
+
+  /* FAQ Popup */
+  .faq-popup {
+    position: fixed;
+    bottom: 96px;
+    right: 24px;
+    z-index: 999;
+    width: 320px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15);
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px) scale(0.95);
+    transition: all 0.3s ease;
+  }
+  .faq-popup.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+  }
+
+  /* Fan Layout */
+  .faq-fan {
+    position: relative;
+    height: 200px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+  .faq-fan-item {
+    position: absolute;
+    bottom: 0;
+    width: 70px;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    cursor: pointer;
+  }
+  .faq-fan-item .faq-num {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: white;
+    border: 2px solid #CD2948;
+    color: #CD2948;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  .faq-fan-item:hover .faq-num,
+  .faq-fan-item.active .faq-num {
+    background: #CD2948;
+    color: white;
+    transform: scale(1.15);
+  }
+  .faq-fan-item .faq-label {
+    font-size: 11px;
+    color: #666;
+    line-height: 1.3;
+    max-width: 70px;
+  }
+
+  /* FAQ Detail Panel */
+  .faq-detail {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid #eee;
+    min-height: 80px;
+  }
+  .faq-detail-item {
+    display: none;
+  }
+  .faq-detail-item.active {
+    display: block;
+  }
+  .faq-detail-item h4 {
+    font-size: 14px;
+    font-weight: bold;
+    color: #CD2948;
+    margin-bottom: 6px;
+  }
+  .faq-detail-item p {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.5;
   }
 </style>
 </head>
@@ -450,47 +560,6 @@ tailwind.config = {
     </div>
   </section>
 
-  <!-- FAQ Section -->
-  <section class="py-16">
-    <h2 class="text-2xl md:text-3xl font-bold mb-10 text-center" data-i18n="faq.title">常見問題</h2>
-
-    <!-- FAQ Question Cards - Horizontal Layout -->
-    <div class="flex flex-wrap justify-center gap-4 mb-8">
-      <button class="faq-card w-[60px] h-[60px] rounded-xl bg-white border border-brand-border flex flex-col items-center justify-center hover:border-brand-accent hover:bg-brand-accent/5 transition-all duration-300 active" data-faq="1">
-        <span class="text-lg font-bold text-brand-accent">1</span>
-      </button>
-      <button class="faq-card w-[60px] h-[60px] rounded-xl bg-white border border-brand-border flex flex-col items-center justify-center hover:border-brand-accent hover:bg-brand-accent/5 transition-all duration-300" data-faq="2">
-        <span class="text-lg font-bold text-brand-accent">2</span>
-      </button>
-      <button class="faq-card w-[60px] h-[60px] rounded-xl bg-white border border-brand-border flex flex-col items-center justify-center hover:border-brand-accent hover:bg-brand-accent/5 transition-all duration-300" data-faq="3">
-        <span class="text-lg font-bold text-brand-accent">3</span>
-      </button>
-      <button class="faq-card w-[60px] h-[60px] rounded-xl bg-white border border-brand-border flex flex-col items-center justify-center hover:border-brand-accent hover:bg-brand-accent/5 transition-all duration-300" data-faq="4">
-        <span class="text-lg font-bold text-brand-accent">4</span>
-      </button>
-    </div>
-
-    <!-- FAQ Answers -->
-    <div class="max-w-3xl mx-auto">
-      <div class="faq-answer bg-white rounded-xl border border-brand-border p-8 active" data-answer="1">
-        <h3 class="font-bold text-lg mb-3" data-i18n="faq.q1">香港是否支持 7x24 運維？</h3>
-        <p class="text-brand-muted" data-i18n="faq.a1">支持。我們提供本地補貨與巡檢排班，並可接入遠程告警系統，確保設備 24 小時在線運營。</p>
-      </div>
-      <div class="faq-answer bg-white rounded-xl border border-brand-border p-8 hidden" data-answer="2">
-        <h3 class="font-bold text-lg mb-3" data-i18n="faq.q2">智能販賣機適合哪些場地？</h3>
-        <p class="text-brand-muted" data-i18n="faq.a2">主要覆蓋寫字樓大堂、校園食堂/圖書館、交通樞紐（地鐵站/高鐵站）、社區中心、醫院等高人流場景。</p>
-      </div>
-      <div class="faq-answer bg-white rounded-xl border border-brand-border p-8 hidden" data-answer="3">
-        <h3 class="font-bold text-lg mb-3" data-i18n="faq.q3">設備維護和商品補貨如何處理？</h3>
-        <p class="text-brand-muted" data-i18n="faq.a3">我們擁有專業的本地運維團隊，負責定期補貨、設備清潔與故障響應。合作夥伴可通過後台實時查看銷售數據與庫存狀態。</p>
-      </div>
-      <div class="faq-answer bg-white rounded-xl border border-brand-border p-8 hidden" data-answer="4">
-        <h3 class="font-bold text-lg mb-3" data-i18n="faq.q4">合作需要哪些資質和費用？</h3>
-        <p class="text-brand-muted" data-i18n="faq.a4">具體資質要求和費用方案因合作模式而異。標準加盟門檻較低，區域代理和聯營合作則根據點位規模與代理範圍定制方案。</p>
-      </div>
-    </div>
-  </section>
-
   <!-- CTA Section -->
   <section id="contact" class="py-16 mb-16">
     <div class="bg-brand-accent rounded-3xl p-10 md:p-16 flex flex-col md:flex-row justify-between items-center gap-8 shadow-2xl shadow-brand-accent/30">
@@ -818,21 +887,6 @@ function toggleAccordion(button) {
   }
 }
 
-// FAQ Card Click Handler
-document.querySelectorAll('.faq-card').forEach(card => {
-  card.addEventListener('click', () => {
-    const faqId = card.getAttribute('data-faq');
-
-    // Update card states
-    document.querySelectorAll('.faq-card').forEach(c => c.classList.remove('active'));
-    card.classList.add('active');
-
-    // Update answer visibility
-    document.querySelectorAll('.faq-answer').forEach(a => a.classList.add('hidden'));
-    document.querySelector(`.faq-answer[data-answer="${faqId}"]`).classList.remove('hidden');
-  });
-});
-
 // Init
 document.getElementById('langToggle').classList.toggle('active', currentLang === 'zh');
 
@@ -996,6 +1050,76 @@ function toggleLang() {
 }
 
 renderActivities();
+
+  // Floating FAQ
+  const faqFloatBtn = document.getElementById('faqFloatBtn');
+  const faqPopup = document.getElementById('faqPopup');
+  const faqFanItems = document.querySelectorAll('.faq-fan-item');
+  const faqDetailItems = document.querySelectorAll('.faq-detail-item');
+
+  faqFloatBtn.addEventListener('click', () => {
+    faqPopup.classList.toggle('open');
+  });
+
+  faqFanItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const idx = item.getAttribute('data-faq');
+      faqFanItems.forEach(i => i.classList.remove('active'));
+      faqDetailItems.forEach(d => d.classList.remove('active'));
+      item.classList.add('active');
+      document.querySelector(`.faq-detail-item[data-detail="${idx}"]`).classList.add('active');
+    });
+  });
+
+  // Close popup when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!faqPopup.contains(e.target) && !faqFloatBtn.contains(e.target)) {
+      faqPopup.classList.remove('open');
+    }
+  });
 </script>
+
+<!-- Floating FAQ Button -->
+<button class="faq-float-btn" id="faqFloatBtn">?</button>
+
+<!-- FAQ Popup -->
+<div class="faq-popup" id="faqPopup">
+  <div class="faq-fan">
+    <div class="faq-fan-item active" data-faq="1" style="transform: rotate(-50deg) translateY(-80px);">
+      <div class="faq-num">1</div>
+      <div class="faq-label">7x24 運維</div>
+    </div>
+    <div class="faq-fan-item" data-faq="2" style="transform: rotate(-17deg) translateY(-100px);">
+      <div class="faq-num">2</div>
+      <div class="faq-label">適用場地</div>
+    </div>
+    <div class="faq-fan-item" data-faq="3" style="transform: rotate(17deg) translateY(-100px);">
+      <div class="faq-num">3</div>
+      <div class="faq-label">維護補貨</div>
+    </div>
+    <div class="faq-fan-item" data-faq="4" style="transform: rotate(50deg) translateY(-80px);">
+      <div class="faq-num">4</div>
+      <div class="faq-label">資質費用</div>
+    </div>
+  </div>
+  <div class="faq-detail">
+    <div class="faq-detail-item active" data-detail="1">
+      <h4>香港是否支持 7x24 運維？</h4>
+      <p>支持。我們提供本地補貨與巡檢排班，並可接入遠程告警系統，確保設備 24 小時在線運營。</p>
+    </div>
+    <div class="faq-detail-item" data-detail="2">
+      <h4>智能販賣機適合哪些場地？</h4>
+      <p>主要覆蓋寫字樓大堂、校園食堂/圖書館、交通樞紐（地鐵站/高鐵站）、社區中心、醫院等高人流場景。</p>
+    </div>
+    <div class="faq-detail-item" data-detail="3">
+      <h4>設備維護和商品補貨如何處理？</h4>
+      <p>我們擁有專業的本地運維團隊，負責定期補貨、設備清潔與故障響應。合作夥伴可通過後台實時查看銷售數據與庫存狀態。</p>
+    </div>
+    <div class="faq-detail-item" data-detail="4">
+      <h4>合作需要哪些資質和費用？</h4>
+      <p>具體資質要求和費用方案因合作模式而異。標準加盟門檻較低，區域代理和聯營合作則根據點位規模與代理範圍定制方案。</p>
+    </div>
+  </div>
+</div>
 </body>
 </html>
