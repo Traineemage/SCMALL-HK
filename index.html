@@ -292,7 +292,23 @@ tailwind.config = {
       <div class="flex-1 w-full">
         <div class="relative">
           <div class="aspect-[4/3] bg-gradient-to-br from-brand-border to-brand-bg rounded-3xl overflow-hidden shadow-2xl">
-            <img src="https://minimax-algeng-chat-tts.oss-cn-wulanchabu.aliyuncs.com/ccv2%2F2026-04-13%2FMiniMax-M2.7%2F2027048564114333893%2F6cf5f9ca3c9d12158611afad1f10c7cfcca03ace62f2f36425f12056c5219a9d..jpeg?Expires=1776169104&OSSAccessKeyId=LTAI5tGLnRTkBjLuYPjNcKQ8&Signature=PkRdoTvSv9yc7yRbhjQXb8qudDE%3D" alt="SCMALL HK Hero" class="w-full h-full object-cover"/>
+            <!-- Hero Carousel -->
+            <div id="heroCarousel" class="relative w-full h-full">
+              <img src="images/hero-scene1.jpeg" alt="Chill Zone Scene 1" class="hero-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-500" data-index="0"/>
+              <img src="images/hero-scene2.jpeg" alt="Chill Zone Scene 2" class="hero-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-500 opacity-0" data-index="1"/>
+              <!-- Dots -->
+              <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                <button class="hero-dot w-2 h-2 rounded-full bg-white/80 transition-all" data-index="0"></button>
+                <button class="hero-dot w-2 h-2 rounded-full bg-white/40 transition-all" data-index="1"></button>
+              </div>
+              <!-- Arrows -->
+              <button class="hero-prev absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 hover:bg-white rounded-full flex items-center justify-center shadow-lg z-10 transition-all opacity-60 hover:opacity-100">
+                <span class="material-icons text-brand-dark text-lg">chevron_left</span>
+              </button>
+              <button class="hero-next absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 hover:bg-white rounded-full flex items-center justify-center shadow-lg z-10 transition-all opacity-60 hover:opacity-100">
+                <span class="material-icons text-brand-dark text-lg">chevron_right</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -482,7 +498,7 @@ tailwind.config = {
     <!-- Featured Story -->
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch mb-12">
       <div class="lg:col-span-7 rounded-xl overflow-hidden relative min-h-[400px]">
-        <img class="absolute inset-0 w-full h-full object-cover" src="https://minimax-algeng-chat-tts.oss-cn-wulanchabu.aliyuncs.com/ccv2%2F2026-04-13%2FMiniMax-M2.7%2F2027048564114333893%2Fc014f5c97b035d944c36aa7f8186aac9292a0824ee694055beb8ced1171f09f0..jpeg?Expires=1776169104&OSSAccessKeyId=LTAI5tGLnRTkBjLuYPjNcKQ8&Signature=kxHrBHPVsPmSlKHjSDRW02N8OQU%3D" alt="Chill Zone at Gadorna Bakery"/>
+        <img class="absolute inset-0 w-full h-full object-cover" src="images/featured-gadorna.jpeg" alt="Chill Zone at Gadorna Bakery"/>
         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
         <div class="absolute bottom-10 left-10 right-10">
           <span class="bg-brand-accent text-white text-[10px] uppercase font-bold px-3 py-1 rounded-full mb-4 inline-block" data-i18n="stories.featured.tag">精選案例</span>
@@ -1039,6 +1055,47 @@ function toggleLang() {
 }
 
 renderActivities();
+
+  // Hero Carousel
+  (function() {
+    const slides = document.querySelectorAll('.hero-slide');
+    const dots = document.querySelectorAll('.hero-dot');
+    const prevBtn = document.querySelector('.hero-prev');
+    const nextBtn = document.querySelector('.hero-next');
+    let current = 0;
+    let timer = null;
+
+    function goTo(idx) {
+      slides[current].classList.add('opacity-0');
+      dots[current].classList.remove('bg-white/80');
+      dots[current].classList.add('bg-white/40');
+      current = (idx + slides.length) % slides.length;
+      slides[current].classList.remove('opacity-0');
+      dots[current].classList.remove('bg-white/40');
+      dots[current].classList.add('bg-white/80');
+    }
+
+    function startTimer() {
+      timer = setInterval(() => goTo(current + 1), 4000);
+    }
+
+    function stopTimer() {
+      clearInterval(timer);
+    }
+
+    prevBtn.addEventListener('click', () => { stopTimer(); goTo(current - 1); startTimer(); });
+    nextBtn.addEventListener('click', () => { stopTimer(); goTo(current + 1); startTimer(); });
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => { stopTimer(); goTo(parseInt(dot.dataset.index)); startTimer(); });
+    });
+
+    // Pause on hover
+    const carousel = document.getElementById('heroCarousel');
+    carousel.addEventListener('mouseenter', stopTimer);
+    carousel.addEventListener('mouseleave', startTimer);
+
+    startTimer();
+  })();
 
   // Floating FAQ
   const faqFloatBtn = document.getElementById('faqFloatBtn');
